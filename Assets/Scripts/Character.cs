@@ -1,18 +1,24 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Character : MonoBehaviour
+public abstract class Character : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Weapon weapon;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private Animator animator;
+    private string currentAnimName;
+    public abstract void Control();
+    public void Attack()
     {
-        
+        ChangeAnim(Constants.AttackAnim);
+        SimplePool.Spawn(weapon.gameObject, firePoint.transform.position, weapon.transform.rotation);
     }
-
-    // Update is called once per frame
-    void Update()
+    protected void ChangeAnim(string animName)
     {
-        
+        if (currentAnimName != animName)
+        {
+            animator.ResetTrigger(animName);
+            currentAnimName = animName;
+            animator.SetTrigger(currentAnimName);
+        }
     }
 }
