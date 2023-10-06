@@ -1,6 +1,6 @@
-﻿using DG.Tweening;
 using UnityEngine;
-public class Hammer : Weapon
+
+public class Knife : Weapon
 {
     private void OnEnable()
     {
@@ -10,18 +10,19 @@ public class Hammer : Weapon
     {
         rb.isKinematic = false;
         transform.SetParent(null);
-        transform.rotation = Quaternion.Euler(90, 0, 0);
+        transform.rotation = Quaternion.Euler(-90, 0, 0);
         rb.AddForce(direction * speed, ForceMode.Impulse);
-        transform.DOLocalRotate(new Vector3(90, 360, 0), 1, RotateMode.FastBeyond360)
-            .SetLoops(-1, LoopType.Restart)
-            .SetEase(Ease.Linear);
+        //transform.DOLocalRotate(new Vector3(90, 360, 0), 1, RotateMode.FastBeyond360)
+        //    .SetLoops(-1, LoopType.Restart)
+        //    .SetEase(Ease.Linear);
         Invoke(nameof(OnDespawn), 3f);
 
     }
     public void OnDespawn()
     {
-        transform.DOKill();
         SimplePool.Despawn(gameObject);
 
     }
+
+
 }
