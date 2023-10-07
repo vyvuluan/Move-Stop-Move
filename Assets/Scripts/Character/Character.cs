@@ -7,9 +7,9 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private Animator animator;
     protected LevelSystem levelSystem;
-    private string currentAnimName;
+    protected string currentAnimName;
     protected bool canAttack = true;
-    private void Awake()
+    public virtual void Awake()
     {
         OnInit();
         levelSystem = new LevelSystem();

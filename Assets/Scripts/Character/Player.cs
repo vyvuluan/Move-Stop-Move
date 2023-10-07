@@ -1,9 +1,7 @@
 using UnityEngine;
 
-public class Enemy : Character
+public class Player : Character
 {
-    [SerializeField] private Vector3 s;
-
     public override void Control()
     {
 
@@ -18,6 +16,10 @@ public class Enemy : Character
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetMouseButtonDown(0) && canAttack)
+        {
+            Attack();
+        }
 
     }
 }

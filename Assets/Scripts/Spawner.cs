@@ -10,10 +10,10 @@ public class Spawner : MonoBehaviour
 
     private void Awake()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 1; i++)
         {
             Vector3 randomPosition = Random.insideUnitSphere * 20;
-            randomPosition.y = 0;
+            randomPosition.y = 0.1f;
             SpawnEnemy(randomPosition);
         }
     }
