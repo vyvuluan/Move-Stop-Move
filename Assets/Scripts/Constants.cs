@@ -14,7 +14,7 @@ public static class Constants
     public const string RespawnAnim = "respawn";
     public const string ThrowAnim = "throw";
     public const string IsDanceAnim = "IsDance";
-    public const string Dance1Anim = "dance1";
+    public const string DanceAnim = "dance";
     public const string Dance2Anim = "dance2";
     public const string Dance3Anim = "dance3";
     public const string Dance4Anim = "dance4";

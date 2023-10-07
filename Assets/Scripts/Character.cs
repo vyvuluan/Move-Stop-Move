@@ -6,11 +6,13 @@ public abstract class Character : MonoBehaviour
     [SerializeField] private Weapon weaponCurrent;
     [SerializeField] private Transform firePoint;
     [SerializeField] private Animator animator;
+    protected LevelSystem levelSystem;
     private string currentAnimName;
     protected bool canAttack = true;
     private void Awake()
     {
         OnInit();
+        levelSystem = new LevelSystem();
     }
     public abstract void Control();
     public void OnInit()
@@ -43,5 +45,10 @@ public abstract class Character : MonoBehaviour
         weaponCurrent = weapon;
         currentAnimName = Constants.IdleAnim;
         canAttack = true;
+    }
+    public void AddLvl()
+    {
+        levelSystem.AddExperience(50);
+
     }
 }

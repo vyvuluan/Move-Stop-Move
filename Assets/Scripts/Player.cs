@@ -20,5 +20,7 @@ public class Player : Character
         {
             Attack();
         }
+        Debug.Log(levelSystem.Level);
+
     }
 }
