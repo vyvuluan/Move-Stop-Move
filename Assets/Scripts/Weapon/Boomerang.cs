@@ -30,7 +30,6 @@ public class Boomerang : Weapon
     public void Back()
     {
         rb.isKinematic = true;
-        Debug.Log(transformStart.position);
         transform.DOMove(playerTransform.position, 1.5f).OnComplete(() =>
         {
             transform.SetParent(parentRightHand, false);

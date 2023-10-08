@@ -12,13 +12,7 @@ public class Enemy : Character
     }
     private void Update()
     {
-        //Debug.Log(currentState.ToString());
-        if (currentState != null)
-        {
-            currentState.OnExecute(this);
-        }
-
-        //Debug.Log(currentAnimName);
+        currentState?.OnExecute(this);
     }
     public override void Control()
     {
@@ -35,14 +29,8 @@ public class Enemy : Character
     }
     public void ChangeState(IState newState)
     {
-        if (currentState != null)
-        {
-            currentState.OnExit(this);
-        }
+        currentState?.OnExit(this);
         currentState = newState;
-        if (currentState != null)
-        {
-            currentState.OnEnter(this);
-        }
+        currentState?.OnEnter(this);
     }
 }
