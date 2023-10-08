@@ -12,7 +12,6 @@ public class IdleState : IState
     }
     public void OnExecute(Enemy enemy)
     {
-        Debug.Log("ilde");
         timer += Time.deltaTime;
         if (timer >= randomTime)
         {

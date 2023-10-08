@@ -18,13 +18,17 @@ public abstract class Character : MonoBehaviour
     public void OnInit()
     {
         Weapon weapon = SimplePool.Spawn(weaponPrefab.gameObject, weaponPrefab.transform.position, weaponPrefab.transform.rotation).GetComponent<Weapon>();
+        if (weapon is Boomerang)
+        {
+            weapon.GetComponent<Boomerang>().OnInit(firePoint, weaponPrefab.transform, transform, ChangeStatusCanAttack);
+        }
         weapon.transform.SetParent(firePoint.transform, false);
         weaponCurrent = weapon;
     }
     public void Attack()
     {
         ChangeAnim(Constants.AttackAnim);
-        Weapon weapon = weaponCurrent.GetComponent<Weapon>();
+        Weapon weapon = weaponCurrent;
         weapon.Moving(transform.forward);
         canAttack = false;
         Invoke(nameof(ResetAttack), 1.02f);
@@ -38,17 +42,21 @@ public abstract class Character : MonoBehaviour
             animator.SetTrigger(currentAnimName);
         }
     }
+    public void ChangeStatusCanAttack(bool canAttack) => this.canAttack = canAttack;
     public void ResetAttack()
     {
+        if (weaponCurrent is Boomerang)
+        {
+            return;
+        }
         Weapon weapon = SimplePool.Spawn(weaponPrefab.gameObject, weaponPrefab.transform.position, weaponPrefab.transform.rotation).GetComponent<Weapon>();
         weapon.transform.SetParent(firePoint.transform, false);
         weaponCurrent = weapon;
-        currentAnimName = Constants.IdleAnim;
         canAttack = true;
+        currentAnimName = Constants.IdleAnim;
     }
     public void AddLvl()
     {
         levelSystem.AddExperience(50);
-
     }
 }

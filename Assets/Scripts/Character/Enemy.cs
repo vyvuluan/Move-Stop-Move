@@ -26,9 +26,6 @@ public class Enemy : Character
         Vector3 randomPosition = Random.insideUnitSphere * 10f;
         randomPosition.y = 0.1f;
         agent.SetDestination(randomPosition);
-        Debug.Log(randomPosition);
-        //has reached the target
-
     }
     public bool CheckChangeIdleState() => agent.remainingDistance <= agent.stoppingDistance;
 
