@@ -1668,7 +1668,7 @@ GameObject:
   - component: {fileID: 2548723786902548374}
   - component: {fileID: 5104496211255984852}
   - component: {fileID: 3801275202726227981}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,12 +1765,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1a7d4114ca186448bf26c942d6badf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1630376927037575057, guid: 3a59c74658ffa9e4590f96b453eea26a, type: 3}
+  weaponPrefab: {fileID: 7955077474310834620, guid: bffb1d74e6f351c4a82999232b16294a, type: 3}
   weaponCurrent: {fileID: 0}
   firePoint: {fileID: 3297228206569879427}
   animator: {fileID: 2195977947371950890}
   nameInfoPrefab: {fileID: 1241145651351019925, guid: 9ee0f9d3cc4d90b44941c30b6d19c46a, type: 3}
   parentNameInfo: {fileID: 0}
+  rb: {fileID: 6301361192665991227}
+  layerMaskCharacter:
+    serializedVersion: 2
+    m_Bits: 64
   agent: {fileID: 1721552277152195194}
 --- !u!114 &5104496211255984852
 MonoBehaviour:

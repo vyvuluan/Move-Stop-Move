@@ -13,13 +13,29 @@ public class Enemy : Character
     private void Update()
     {
         currentState?.OnExecute(this);
+        if (CompetitorInRange() != null)
+        {
+            //if (canAttack)
+            ChangeState(new AttackState());
+        }
+        //else
+        //{
+        //    ChangeState(new MoveState());
+        //}
+        Debug.Log(currentState);
     }
     public override void Control()
     {
+        rb.isKinematic = false;
+        agent.isStopped = false;
         ChangeAnim(Constants.RunAnim);
         Vector3 randomPosition = Random.insideUnitSphere * 10f;
         randomPosition.y = 0.1f;
         agent.SetDestination(randomPosition);
+    }
+    public void StopAgent()
+    {
+        agent.isStopped = true;
     }
     public bool CheckChangeIdleState() => agent.remainingDistance <= agent.stoppingDistance;
 

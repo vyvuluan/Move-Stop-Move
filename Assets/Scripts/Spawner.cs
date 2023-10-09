@@ -5,6 +5,7 @@ public class Spawner : MonoBehaviour
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject indicatorPrefab;
     [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private FloatingJoystick joystick;
 
     [SerializeField] private Transform parentIndicator;
     [SerializeField] private Transform parentEnemy;
@@ -13,9 +14,8 @@ public class Spawner : MonoBehaviour
     private Player player;
     private void Awake()
     {
-        Debug.Log("Spawner");
         SpawnPlayer();
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 4; i++)
         {
             Vector3 randomPosition = Random.insideUnitSphere * 20;
             randomPosition.y = 0.1f;
@@ -35,7 +35,8 @@ public class Spawner : MonoBehaviour
     public void SpawnPlayer()
     {
         GameObject playerGo = SimplePool.Spawn(playerPrefab, playerPrefab.transform.position, playerPrefab.transform.rotation);
-        player = playerGo.GetComponent<Player>();
+        player = playerGo.GetComponentInChildren<Player>();
         player.SetParentNameInfo(parentNameInfo);
+        player.SetJoystick(joystick);
     }
 }
