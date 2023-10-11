@@ -93,12 +93,12 @@ public abstract class Character : MonoBehaviour
     {
         levelSystem.AddExperience(50);
     }
-    public Transform CompetitorInRange()
+    public Character CompetitorInRange()
     {
         Collider[] colliders = Physics.OverlapSphere(transform.position, rangeAttackRadius, layerMaskCharacter);
         if (colliders.Length < 2) return null;
         colliders = colliders.OrderBy(n => Vector3.Distance(transform.position, n.transform.position)).ToArray();
-        return colliders[1].transform;
+        return colliders[1].GetComponent<Character>();
     }
 
 }

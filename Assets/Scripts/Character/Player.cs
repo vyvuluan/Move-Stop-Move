@@ -5,6 +5,7 @@ public class Player : Character
     [SerializeField] private float moveSpeed = 10f;
     [SerializeField] private RangeAttack rangeAttack;
     [SerializeField] private FloatingJoystick joystick;
+    private Enemy enemyTarget;
     private Vector3 moveVector;
     private RaycastHit hit;
     private RaycastHit hitWall;
@@ -16,17 +17,8 @@ public class Player : Character
     }
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            if (canAttack)
-            {
-                //Attack();
-            }
-        }
-        else
-        {
-            //Control();
-        }
+        Control();
+        SelectTarger();
     }
     public override void Control()
     {
@@ -45,6 +37,24 @@ public class Player : Character
             ChangeAnim(Constants.IdleAnim);
         }
         rb.MovePosition(rb.position + moveVector);
+    }
+    private void SelectTarger()
+    {
+        Enemy newTarget = CompetitorInRange() as Enemy;
+        if (newTarget != enemyTarget)
+        {
+            if (enemyTarget != null)
+            {
+                enemyTarget.TargetSetVisible(false);
+            }
+
+            if (newTarget != null)
+            {
+                newTarget.TargetSetVisible(true);
+            }
+
+            enemyTarget = newTarget;
+        }
     }
     public void SetJoystick(FloatingJoystick floatingJoystick)
     {

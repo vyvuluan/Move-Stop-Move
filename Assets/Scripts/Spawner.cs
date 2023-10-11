@@ -2,6 +2,7 @@
 
 public class Spawner : MonoBehaviour
 {
+    [SerializeField] private CameraFollow cameraFollow;
     [SerializeField] private GameObject enemyPrefab;
     [SerializeField] private GameObject indicatorPrefab;
     [SerializeField] private GameObject playerPrefab;
@@ -15,7 +16,7 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         SpawnPlayer();
-        for (int i = 0; i < 1; i++)
+        for (int i = 0; i < 3; i++)
         {
             Vector3 randomPosition = Random.insideUnitSphere * 20;
             randomPosition.y = 0f;
@@ -39,5 +40,6 @@ public class Spawner : MonoBehaviour
         player = playerGo.GetComponentInChildren<Player>();
         player.SetParentNameInfo(parentNameInfo);
         player.SetJoystick(joystick);
+        cameraFollow.SetPlayer(playerGo.transform);
     }
 }

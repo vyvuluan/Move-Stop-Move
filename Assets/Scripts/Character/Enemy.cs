@@ -4,6 +4,7 @@ using UnityEngine.AI;
 public class Enemy : Character
 {
     [SerializeField] private NavMeshAgent agent;
+    [SerializeField] private GameObject targetGameObject;
     private IState currentState;
     public override void Awake()
     {
@@ -44,6 +45,10 @@ public class Enemy : Character
     public void ResetIdle()
     {
         ChangeAnim(Constants.IdleAnim);
+    }
+    public void TargetSetVisible(bool status)
+    {
+        targetGameObject.SetActive(status);
     }
     public void ChangeState(IState newState)
     {

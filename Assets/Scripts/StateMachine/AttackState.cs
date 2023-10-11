@@ -13,7 +13,7 @@ public class AttackState : IState
         }
         else
         {
-            enemy.Attack(enemy.CompetitorInRange());
+            enemy.Attack(enemy.CompetitorInRange().transform);
         }
     }
 

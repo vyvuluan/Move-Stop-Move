@@ -337,7 +337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3773975866647383026
 Transform:
   m_ObjectHideFlags: 0
@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1a7d4114ca186448bf26c942d6badf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1630376927037575057, guid: 3a59c74658ffa9e4590f96b453eea26a, type: 3}
+  weaponPrefab: {fileID: 1521891374664984555, guid: d2a94402245908c43969b3b3628ddffc, type: 3}
   weaponCurrent: {fileID: 0}
   firePoint: {fileID: 3297228206569879427}
   animator: {fileID: 2195977947371950890}
@@ -1776,6 +1776,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   agent: {fileID: 1721552277152195194}
+  targetGameObject: {fileID: 1502318248483461114}
 --- !u!114 &5104496211255984852
 MonoBehaviour:
   m_ObjectHideFlags: 0
