@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-
 public class Spawner : MonoBehaviour
 {
     [SerializeField] private CameraFollow cameraFollow;
@@ -32,7 +31,6 @@ public class Spawner : MonoBehaviour
         //Set parent
         indicator.transform.SetParent(parentIndicator);
         enemyGO.transform.SetParent(parentEnemy);
-        Debug.Log(enemyGO.transform.position);
     }
     public void SpawnPlayer()
     {

@@ -10,7 +10,7 @@ public abstract class Weapon : MonoBehaviour
     {
         if (other != null)
         {
-            Debug.Log(other.name);
+            // Debug.Log(other.name);
         }
     }
 

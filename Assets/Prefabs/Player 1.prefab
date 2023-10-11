@@ -1409,8 +1409,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8657328273416558672}
   - component: {fileID: 1634527335478998314}
-  - component: {fileID: 1634527335478998315}
-  - component: {fileID: 6892036434575397907}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1457,45 +1455,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1634527335478998315
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5656059246218209859}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e9af7464ca7ae941af2c016b09fb1fe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1521891374664984555, guid: d2a94402245908c43969b3b3628ddffc, type: 3}
-  weaponCurrent: {fileID: 0}
-  firePoint: {fileID: 6369252565367297107}
-  animator: {fileID: 1634527335478998314}
-  nameInfoPrefab: {fileID: 1241145651351019925, guid: 9ee0f9d3cc4d90b44941c30b6d19c46a, type: 3}
-  parentNameInfo: {fileID: 0}
-  rb: {fileID: 0}
-  layerMaskCharacter:
-    serializedVersion: 2
-    m_Bits: 64
-  moveSpeed: 5
-  rangeAttack: {fileID: 8229583925656918363}
-  joystick: {fileID: 0}
---- !u!136 &6892036434575397907
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5656059246218209859}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 0
-  m_Radius: 0.5
-  m_Height: 2.7071533
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.85357666, z: 0}
 --- !u!1 &5697124836110512911
 GameObject:
   m_ObjectHideFlags: 0
@@ -2619,7 +2578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e9af7464ca7ae941af2c016b09fb1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1521891374664984555, guid: d2a94402245908c43969b3b3628ddffc, type: 3}
+  weaponPrefab: {fileID: 1630376927037575057, guid: 3a59c74658ffa9e4590f96b453eea26a, type: 3}
   weaponCurrent: {fileID: 0}
   firePoint: {fileID: 6369252565367297107}
   animator: {fileID: 1634527335478998314}

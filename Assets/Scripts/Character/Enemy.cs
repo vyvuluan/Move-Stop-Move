@@ -25,7 +25,7 @@ public class Enemy : Character
         //{
         //    ChangeState(new MoveState());
         //}
-        Debug.Log(currentState);
+        //Debug.Log(currentState);
     }
     public override void Control()
     {

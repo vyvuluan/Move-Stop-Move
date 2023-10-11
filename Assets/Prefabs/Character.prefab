@@ -1765,7 +1765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a1a7d4114ca186448bf26c942d6badf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weaponPrefab: {fileID: 1521891374664984555, guid: d2a94402245908c43969b3b3628ddffc, type: 3}
+  weaponPrefab: {fileID: 9047061667730985324, guid: cc0dafe1ee6534e40be0ff79fcf30cbd, type: 3}
   weaponCurrent: {fileID: 0}
   firePoint: {fileID: 3297228206569879427}
   animator: {fileID: 2195977947371950890}

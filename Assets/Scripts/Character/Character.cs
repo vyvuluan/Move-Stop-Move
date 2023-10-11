@@ -51,11 +51,17 @@ public abstract class Character : MonoBehaviour
     }
     public IEnumerator AttackCoroutine(Transform competitor)
     {
+
         canAttack = false;
         ChangeAnim(Constants.AttackAnim);
         Weapon weapon = weaponCurrent;
         yield return new WaitForSeconds(0.3f);
         Vector3 lookDirection = competitor.position - transform.position;
+        //if (this is Player)
+        //{
+        //    Debug.Log("attack");
+        //    Debug.Log(lookDirection);
+        //}
         //Debug.Log("competitor " + competitor.position);
         //Debug.Log("transform " + transform.position);
         transform.LookAt(lookDirection);
@@ -65,7 +71,7 @@ public abstract class Character : MonoBehaviour
         currentAnimName = Constants.IdleAnim;
         if (weaponCurrent is Boomerang)
         {
-            yield return null;
+            //yield return null;
         }
         else
         {

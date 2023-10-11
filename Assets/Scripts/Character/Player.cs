@@ -9,6 +9,7 @@ public class Player : Character
     private Vector3 moveVector;
     private RaycastHit hit;
     private RaycastHit hitWall;
+
     public override void Start()
     {
         base.Start();
@@ -17,15 +18,20 @@ public class Player : Character
     }
     private void Update()
     {
+        if (enemyTarget != null)
+        {
+            Attack(enemyTarget.transform);
+        }
         Control();
         SelectTarger();
+
+        Debug.Log(currentAnimName);
     }
     public override void Control()
     {
         moveVector = Vector3.zero;
         moveVector.x = joystick.Horizontal * moveSpeed * Time.deltaTime;
         moveVector.z = joystick.Vertical * moveSpeed * Time.deltaTime;
-        Debug.Log(moveVector);
         if (joystick.Horizontal != 0 || joystick.Vertical != 0)
         {
             Vector3 direction = Vector3.RotateTowards(transform.forward, moveVector, moveSpeed * Time.deltaTime, 0.0f);
