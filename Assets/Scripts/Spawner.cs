@@ -15,10 +15,10 @@ public class Spawner : MonoBehaviour
     private void Awake()
     {
         SpawnPlayer();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 1; i++)
         {
             Vector3 randomPosition = Random.insideUnitSphere * 20;
-            randomPosition.y = 0.1f;
+            randomPosition.y = 0f;
             SpawnEnemy(randomPosition);
         }
     }
@@ -31,6 +31,7 @@ public class Spawner : MonoBehaviour
         //Set parent
         indicator.transform.SetParent(parentIndicator);
         enemyGO.transform.SetParent(parentEnemy);
+        Debug.Log(enemyGO.transform.position);
     }
     public void SpawnPlayer()
     {

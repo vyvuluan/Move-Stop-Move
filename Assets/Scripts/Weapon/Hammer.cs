@@ -10,7 +10,7 @@ public class Hammer : Weapon
     {
         rb.isKinematic = false;
         transform.SetParent(null);
-        transform.rotation = Quaternion.Euler(90, 0, 0);
+        transform.SetPositionAndRotation(new(start.x, transform.position.y, start.z), Quaternion.Euler(90, 0, 0));
         Vector3 lookDirection = end - start;
         rb.AddForce(lookDirection.normalized * speed, ForceMode.Impulse);
         transform.DOLocalRotate(new Vector3(90, 360, 0), 1, RotateMode.FastBeyond360)

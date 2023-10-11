@@ -12,12 +12,14 @@ public class Enemy : Character
     }
     private void Update()
     {
+        transform.position = new(transform.position.x, 0, transform.position.z);
         currentState?.OnExecute(this);
         if (CompetitorInRange() != null)
         {
             //if (canAttack)
             ChangeState(new AttackState());
         }
+
         //else
         //{
         //    ChangeState(new MoveState());
@@ -30,7 +32,7 @@ public class Enemy : Character
         agent.isStopped = false;
         ChangeAnim(Constants.RunAnim);
         Vector3 randomPosition = Random.insideUnitSphere * 10f;
-        randomPosition.y = 0.1f;
+        randomPosition.y = 0f;
         agent.SetDestination(randomPosition);
     }
     public void StopAgent()
@@ -49,4 +51,8 @@ public class Enemy : Character
         currentState = newState;
         currentState?.OnEnter(this);
     }
+
+    //Vector3 direction = (target.position - transform.position).normalized;
+    //Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+    //transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5f);
 }

@@ -31,6 +31,7 @@ public abstract class Character : MonoBehaviour
     {
         NameInfo nameInfo = SimplePool.Spawn(nameInfoPrefab, nameInfoPrefab.transform.position, nameInfoPrefab.transform.rotation).GetComponent<NameInfo>();
         nameInfo.OnInit(transform, parentNameInfo);
+
     }
     public abstract void Control();
     public void OnInit()
@@ -99,4 +100,5 @@ public abstract class Character : MonoBehaviour
         colliders = colliders.OrderBy(n => Vector3.Distance(transform.position, n.transform.position)).ToArray();
         return colliders[1].transform;
     }
+
 }

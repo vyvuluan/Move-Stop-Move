@@ -11,18 +11,10 @@ public class Knife : Weapon
         rb.isKinematic = false;
         transform.SetParent(null);
         Vector3 lookDirection = end - start;
-        //Vector3 directionKnife = transform.rotation * new(1, 1, -1);
-        transform.rotation = Quaternion.Euler(-90, 0, Mathf.Atan2(lookDirection.z, lookDirection.x) * Mathf.Rad2Deg);
-
-
-
-
+        transform.position = new(start.x, transform.position.y, start.z);
         rb.AddForce(lookDirection.normalized * speed, ForceMode.Impulse);
-        //transform.DOLocalRotate(new Vector3(90, 360, 0), 1, RotateMode.FastBeyond360)
-        //    .SetLoops(-1, LoopType.Restart)
-        //    .SetEase(Ease.Linear);
+        transform.rotation = Quaternion.Euler(-90, Mathf.Atan2(lookDirection.x, lookDirection.z) * Mathf.Rad2Deg, 0);
         Invoke(nameof(OnDespawn), 3f);
-
     }
     public void OnDespawn()
     {

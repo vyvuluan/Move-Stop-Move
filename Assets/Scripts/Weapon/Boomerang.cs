@@ -20,7 +20,7 @@ public class Boomerang : Weapon
         rb.isKinematic = false;
         transform.SetParent(null);
         Vector3 lookDirection = end - start;
-        transform.rotation = Quaternion.Euler(90, 0, 0);
+        transform.SetPositionAndRotation(new(start.x, transform.position.y, start.z), Quaternion.Euler(90, 0, 0));
         rb.AddForce(lookDirection.normalized * speed, ForceMode.Impulse);
         transform.DOLocalRotate(new Vector3(90, 360, 0), 0.5f, RotateMode.FastBeyond360)
             .SetLoops(-1, LoopType.Restart)
